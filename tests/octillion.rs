@@ -1,16 +1,16 @@
-extern crate rayon;
+extern crate solana_rayon;
 
-use rayon::prelude::*;
+use solana_rayon::prelude::*;
 
 const OCTILLION: u128 = 1_000_000_000_000_000_000_000_000_000;
 
 /// Produce a parallel iterator for 0u128..10²⁷
-fn octillion() -> rayon::range::Iter<u128> {
+fn octillion() -> solana_rayon::range::Iter<u128> {
     (0..OCTILLION).into_par_iter()
 }
 
 /// Produce a parallel iterator for 0u128..=10²⁷
-fn octillion_inclusive() -> rayon::range_inclusive::Iter<u128> {
+fn octillion_inclusive() -> solana_rayon::range_inclusive::Iter<u128> {
     (0..=OCTILLION).into_par_iter()
 }
 
@@ -57,7 +57,7 @@ fn two_threads<F: Send + FnOnce() -> R, R: Send>(f: F) -> R {
     // FIXME: If we don't use at least two threads, then we end up walking
     // through the entire iterator sequentially, without the benefit of any
     // short-circuiting.  We probably don't want testing to wait that long. ;)
-    let builder = rayon::ThreadPoolBuilder::new().num_threads(2);
+    let builder = solana_rayon::ThreadPoolBuilder::new().num_threads(2);
     let pool = builder.build().unwrap();
 
     pool.install(f)

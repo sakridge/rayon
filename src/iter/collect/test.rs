@@ -7,7 +7,7 @@
 
 use super::Collect;
 use iter::plumbing::*;
-use rayon_core::join;
+use solana_rayon_core::join;
 
 /// Promises to produce 2 items, but then produces 3.  Does not do any
 /// splits at all.

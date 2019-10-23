@@ -746,6 +746,7 @@ impl WorkerThread {
     /// This should only be done as a last resort, when there is no
     /// local work to do.
     unsafe fn steal(&self) -> Option<JobRef> {
+        return None;
         // we only steal when we don't have any work to do locally
         debug_assert!(self.local_deque_is_empty());
 

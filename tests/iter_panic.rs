@@ -1,7 +1,7 @@
-extern crate rayon;
+extern crate solana_rayon;
 
-use rayon::prelude::*;
-use rayon::ThreadPoolBuilder;
+use solana_rayon::prelude::*;
+use solana_rayon::ThreadPoolBuilder;
 use std::ops::Range;
 use std::panic::{self, UnwindSafe};
 use std::sync::atomic::{AtomicUsize, Ordering};

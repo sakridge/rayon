@@ -1,8 +1,8 @@
 #![type_length_limit = "500000"]
 
-extern crate rayon;
+extern crate solana_rayon;
 
-use rayon::prelude::*;
+use solana_rayon::prelude::*;
 
 #[test]
 fn type_length_limit() {

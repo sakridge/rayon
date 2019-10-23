@@ -2,7 +2,7 @@ use std::sync::atomic::{AtomicUsize, Ordering};
 
 use super::*;
 use prelude::*;
-use rayon_core::*;
+use solana_rayon_core::*;
 
 use rand::distributions::Standard;
 use rand::{Rng, SeedableRng};

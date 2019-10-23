@@ -1,5 +1,5 @@
 extern crate docopt;
-extern crate rayon;
+extern crate solana_rayon;
 #[macro_use]
 extern crate serde_derive;
 extern crate serde;
@@ -61,7 +61,7 @@ fn task(args: &Args) {
         if n == 0 {
             return;
         }
-        rayon::join(|| join_recursively(n - 1), || join_recursively(n - 1));
+        solana_rayon::join(|| join_recursively(n - 1), || join_recursively(n - 1));
     }
 
     println!("Starting heavy work at depth {}...wait.", args.flag_depth);
@@ -76,11 +76,11 @@ fn tasks_ended(args: &Args) {
 }
 
 fn task_stall_root(args: &Args) {
-    rayon::join(|| task(args), wait_for_user);
+    solana_rayon::join(|| task(args), wait_for_user);
 }
 
 fn task_stall_scope(args: &Args) {
-    rayon::scope(|scope| {
+    solana_rayon::scope(|scope| {
         scope.spawn(move |_| task(args));
         scope.spawn(move |_| wait_for_user());
     });

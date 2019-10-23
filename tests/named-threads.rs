@@ -1,9 +1,9 @@
-extern crate rayon;
+extern crate solana_rayon;
 
 use std::collections::HashSet;
 
-use rayon::prelude::*;
-use rayon::*;
+use solana_rayon::prelude::*;
+use solana_rayon::*;
 
 #[test]
 fn named_threads() {

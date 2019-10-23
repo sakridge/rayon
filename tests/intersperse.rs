@@ -1,6 +1,6 @@
-extern crate rayon;
+extern crate solana_rayon;
 
-use rayon::prelude::*;
+use solana_rayon::prelude::*;
 
 #[test]
 fn check_intersperse() {

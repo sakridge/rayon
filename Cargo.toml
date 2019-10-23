@@ -1,5 +1,5 @@
 [package]
-name = "rayon"
+name = "solana-rayon"
 # Reminder to update html_rool_url in lib.rs when updating version
 version = "1.2.0"
 authors = ["Niko Matsakis <niko@alum.mit.edu>",
@@ -18,7 +18,7 @@ members = ["rayon-demo", "rayon-core", "rayon-futures"]
 exclude = ["ci"]
 
 [dependencies]
-rayon-core = { version = "1.6.0", path = "rayon-core" }
+solana-rayon-core = { version = "1.6.0", path = "rayon-core" }
 crossbeam-deque = "0.7"
 
 # This is a public dependency!

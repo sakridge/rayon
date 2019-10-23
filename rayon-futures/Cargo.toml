@@ -12,5 +12,5 @@ keywords = ["parallel", "thread", "concurrency", "join", "performance"]
 categories = ["concurrency"]
 
 [dependencies]
-rayon-core = { version = "1.3", path = "../rayon-core" }
+solana-rayon-core = { version = "1.3", path = "../rayon-core" }
 futures = "0.1.16"

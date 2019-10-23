@@ -1,11 +1,11 @@
 extern crate rand;
 extern crate rand_xorshift;
-extern crate rayon;
+extern crate solana_rayon;
 
 use rand::distributions::Standard;
 use rand::{Rng, SeedableRng};
 use rand_xorshift::XorShiftRng;
-use rayon::prelude::*;
+use solana_rayon::prelude::*;
 
 fn seeded_rng() -> XorShiftRng {
     let mut seed = <XorShiftRng as SeedableRng>::Seed::default();

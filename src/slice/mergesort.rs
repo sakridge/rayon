@@ -5,7 +5,7 @@
 //! `MergesortResult` and leaves descending arrays intact.
 
 use iter::*;
-use rayon_core;
+use solana_rayon_core;
 use slice::ParallelSliceMut;
 use std::mem;
 use std::mem::size_of;
@@ -501,7 +501,7 @@ where
         // Convert the pointers to `usize` because `*mut T` is not `Send`.
         let dest_l = dest as usize;
         let dest_r = dest.add(left_l.len() + right_l.len()) as usize;
-        rayon_core::join(
+        solana_rayon_core::join(
             || par_merge(left_l, right_l, dest_l as *mut T, is_less),
             || par_merge(left_r, right_r, dest_r as *mut T, is_less),
         );
@@ -602,7 +602,7 @@ unsafe fn recurse<T, F>(
     // Convert the pointers to `usize` because `*mut T` is not `Send`.
     let v = v as usize;
     let buf = buf as usize;
-    rayon_core::join(
+    solana_rayon_core::join(
         || recurse(v as *mut T, buf as *mut T, left, !into_buf, is_less),
         || recurse(v as *mut T, buf as *mut T, right, !into_buf, is_less),
     );

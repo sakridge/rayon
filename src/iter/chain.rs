@@ -1,6 +1,6 @@
 use super::plumbing::*;
 use super::*;
-use rayon_core::join;
+use solana_rayon_core::join;
 use std::cmp;
 use std::iter;
 
